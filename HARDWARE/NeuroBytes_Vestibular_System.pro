@@ -1,4 +1,4 @@
-update=Sun 28 May 2017 07:48:14 AM CDT
+update=Mon 29 May 2017 06:54:19 PM CDT
 version=1
 last_client=kicad
 [pcbnew]
@@ -59,3 +59,4 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=NeuroBytes_Schematic_Lib/NeuroTinker_schematic_symbols
+LibName31=/home/zach/Documents/NeuroTinker/Products/NeuroBytes_Battery_Power/HARDWARE/4xAA/NeuroBytes_Battery_Power_4xAA-cache
