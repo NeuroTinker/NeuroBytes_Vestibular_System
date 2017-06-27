@@ -1,1 +1,0 @@
-# NeuroBytes_Motor_Neuron
