@@ -1,15 +1,15 @@
 (kicad_pcb (version 4) (host pcbnew 4.0.5-e0-6337~49~ubuntu14.04.1)
 
   (general
-    (links 133)
+    (links 132)
     (no_connects 10)
-    (area 199.802434 58.653575 252.246067 105.201496)
+    (area 195 55.630952 255.353737 108.338602)
     (thickness 1.6)
     (drawings 191)
     (tracks 848)
     (zones 0)
     (modules 50)
-    (nets 57)
+    (nets 58)
   )
 
   (page A4)
@@ -65,7 +65,7 @@
     (aux_axis_origin 0 0)
     (visible_elements FFFFEF7F)
     (pcbplotparams
-      (layerselection 0x00030_80000001)
+      (layerselection 0x00004_00000000)
       (usegerberextensions false)
       (excludeedgelayer true)
       (linewidth 0.100000)
@@ -86,7 +86,7 @@
       (subtractmaskfromsilk false)
       (outputformat 1)
       (mirror false)
-      (drillshape 1)
+      (drillshape 0)
       (scaleselection 1)
       (outputdirectory ""))
   )
@@ -148,6 +148,7 @@
   (net 54 "Net-(U3-Pad14)")
   (net 55 "Net-(R5-Pad1)")
   (net 56 "Net-(R6-Pad1)")
+  (net 57 "Net-(U3-Pad10)")
 
   (net_class Default "This is the default net class."
     (clearance 0.2)
@@ -204,6 +205,7 @@
     (add_net "Net-(R5-Pad1)")
     (add_net "Net-(R6-Pad1)")
     (add_net "Net-(U2-Pad4)")
+    (add_net "Net-(U3-Pad10)")
     (add_net "Net-(U3-Pad14)")
     (add_net "Net-(U3-Pad26)")
     (add_net "Net-(U3-Pad27)")
@@ -1923,7 +1925,7 @@
     (pad 9 smd rect (at -0.75 -1.5625 180) (size 0.25 0.475) (layers B.Cu B.Paste B.Mask)
       (net 5 "Net-(C7-Pad1)"))
     (pad 10 smd rect (at -0.25 -1.5625 180) (size 0.25 0.475) (layers B.Cu B.Paste B.Mask)
-      (net 2 GND))
+      (net 57 "Net-(U3-Pad10)"))
     (pad 11 smd rect (at 0.25 -1.5625 180) (size 0.25 0.475) (layers B.Cu B.Paste B.Mask)
       (net 56 "Net-(R6-Pad1)"))
     (pad 12 smd rect (at 0.75 -1.5625 180) (size 0.25 0.475) (layers B.Cu B.Paste B.Mask))
