@@ -456,20 +456,20 @@ F 3 "" H 10650 4500 50  0000 C CNN
 F 4 "No" H 10650 4500 60  0001 C CNN "Subs Allowed"
 F 5 "Yes" H 10650 4500 60  0001 C CNN "RoHS"
 	1    10650 4500
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 $Comp
 L LED D3
 U 1 1 592AE878
 P 9650 3900
 F 0 "D3" H 9650 4000 50  0000 C CNN
-F 1 "LED" H 9650 3800 50  0000 C CNN
+F 1 "LED" V 9650 3800 50  0000 C CNN
 F 2 "KiCad_Footprints:ZF_SMD_NonPol_0402" H 9650 3900 50  0001 C CNN
 F 3 "" H 9650 3900 50  0000 C CNN
 F 4 "No" H 9650 3900 60  0001 C CNN "Subs Allowed"
 F 5 "Yes" H 9650 3900 60  0001 C CNN "RoHS"
 	1    9650 3900
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 $Comp
 L LED D2
@@ -482,7 +482,7 @@ F 3 "" H 10750 5100 50  0000 C CNN
 F 4 "No" H 10750 5100 60  0001 C CNN "Subs Allowed"
 F 5 "Yes" H 10750 5100 60  0001 C CNN "RoHS"
 	1    10750 5100
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 $Comp
 L LED D1
@@ -495,7 +495,7 @@ F 3 "" H 9550 3300 50  0000 C CNN
 F 4 "No" H 9550 3300 60  0001 C CNN "Subs Allowed"
 F 5 "Yes" H 9550 3300 60  0001 C CNN "RoHS"
 	1    9550 3300
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 $Comp
 L CONN_01X04 P1
@@ -919,7 +919,7 @@ F 3 "" H 9750 4500 50  0000 C CNN
 F 4 "No" H 9750 4500 60  0001 C CNN "Subs Allowed"
 F 5 "Yes" H 9750 4500 60  0001 C CNN "RoHS"
 	1    9750 4500
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 $Comp
 L GND #PWR018
@@ -1097,7 +1097,7 @@ F 3 "" H 9850 5100 50  0000 C CNN
 F 4 "No" H 9850 5100 60  0001 C CNN "Subs Allowed"
 F 5 "Yes" H 9850 5100 60  0001 C CNN "RoHS"
 	1    9850 5100
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 Wire Wire Line
 	9150 5400 11650 5400
@@ -1145,7 +1145,7 @@ F 3 "" H 10550 3900 50  0000 C CNN
 F 4 "No" H 10550 3900 60  0001 C CNN "Subs Allowed"
 F 5 "Yes" H 10550 3900 60  0001 C CNN "RoHS"
 	1    10550 3900
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 Wire Wire Line
 	10650 4800 10650 4650
@@ -1161,7 +1161,7 @@ F 3 "" H 10450 3300 50  0000 C CNN
 F 4 "No" H 10450 3300 60  0001 C CNN "Subs Allowed"
 F 5 "Yes" H 10450 3300 60  0001 C CNN "RoHS"
 	1    10450 3300
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 Wire Wire Line
 	10750 4950 10750 2850
@@ -1221,7 +1221,7 @@ F 3 "" H 11550 4500 50  0000 C CNN
 F 4 "No" H 11550 4500 60  0001 C CNN "Subs Allowed"
 F 5 "Yes" H 11550 4500 60  0001 C CNN "RoHS"
 	1    11550 4500
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 $Comp
 L LED D9
@@ -1234,7 +1234,7 @@ F 3 "" H 11650 5100 50  0000 C CNN
 F 4 "No" H 11650 5100 60  0001 C CNN "Subs Allowed"
 F 5 "Yes" H 11650 5100 60  0001 C CNN "RoHS"
 	1    11650 5100
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 Wire Wire Line
 	11350 3600 11350 3450
@@ -1278,7 +1278,7 @@ F 3 "" H 11350 3300 50  0000 C CNN
 F 4 "No" H 11350 3300 60  0001 C CNN "Subs Allowed"
 F 5 "Yes" H 11350 3300 60  0001 C CNN "RoHS"
 	1    11350 3300
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 Wire Wire Line
 	11550 4800 11550 4650
@@ -1293,7 +1293,7 @@ F 3 "" H 11450 3900 50  0000 C CNN
 F 4 "No" H 11450 3900 60  0001 C CNN "Subs Allowed"
 F 5 "Yes" H 11450 3900 60  0001 C CNN "RoHS"
 	1    11450 3900
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 Wire Wire Line
 	11650 4950 11650 2850
