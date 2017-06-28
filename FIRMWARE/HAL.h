@@ -53,6 +53,7 @@
 
 extern volatile uint8_t tick;
 extern volatile uint8_t main_tick;
+
 static const uint16_t gamma_lookup[1024];
 
 typedef struct
@@ -71,6 +72,8 @@ typedef struct
 	uint16_t	LED_RIGHT;
 	uint8_t		current_y;			// Y0, Y1, Y2
 } led_array;
+
+extern volatile led_array LEDs;
 
 typedef struct
 {

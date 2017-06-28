@@ -12,14 +12,13 @@ int main(void)
 {
 	int i;
 	int slow_count = 0;
-	led_array LEDs = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	imu_data IMU = {0,0,0,0,0};
 
 
 	clock_setup();
 	gpio_setup();
 	tim_setup();
-	systick_setup(50); //systick in microseconds
+	systick_setup(100); //systick in microseconds
 	i2c_setup();
 	usart_setup();
 	char strDisp[20];
@@ -37,7 +36,7 @@ int main(void)
 	i2c_write(0x3D, 0x0); //OPR_MODE register, config mode
 	i2c_write(0x3E, 0x0); //PWR_MODE register, normal
 	i2c_write(0x07, 0x01); //Page ID, switch to page 1
-	i2c_write(0x0A, 0x3A); //change gyro range to 500dps @32Hz
+	i2c_write(0x0A, 0x3C); //change gyro range to 125dps @32Hz
 	i2c_write(0x07, 0x00); //Page ID, switch to page 0
 	i2c_write(0x3D, 0x8); //OPR_MODE register, IMU mode	
 
@@ -46,8 +45,6 @@ int main(void)
 		__asm__("nop");
 	}
 
-	int16_t gyromax = 0;
-
 	for(;;)
 	{
 		if (main_tick == 1) 
@@ -55,17 +52,17 @@ int main(void)
 			main_tick = 0;
 		
 
-			updateLEDs(&LEDs);
 
 			slow_count++;
 			if (slow_count > 50)
 			{
 				slow_count = 0;
-				mini_snprintf(strDisp, 20, "%d\r\n", IMU.gyro_ant);
+				mini_snprintf(strDisp, 20, "%d\r\n", IMU.accel_utr);
 				usart_print(strDisp);
 				getIMU(&IMU);
 				scaleIMU(&IMU);
 				setLEDs(&IMU, &LEDs);
+				LEDs.LED_UT_HIGH = 500;
 			}
 		}
 	}
