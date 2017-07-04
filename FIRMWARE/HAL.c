@@ -324,8 +324,19 @@ void tim21_isr(void)
 
 void getIMU(imu_data *imu)
 {
-	imu->accel_utr = (int16_t)i2c_read(0x2B) | ((int16_t)i2c_read(0x2A) << 8);
-	imu->accel_sac = (int16_t)i2c_read(0x29) | ((int16_t)i2c_read(0x28) << 8);
+	int16_t msb, lsb;
+	//uint8_t msb, lsb;
+	lsb = i2c_read(0x2A);
+	msb = i2c_read(0x2B);
+	//imu->accel_utr = (int16_t)i2c_read(0x2B) | ((int16_t)i2c_read(0x2A) << 8);
+	imu->accel_utr = (msb << 8 | lsb);
+	//imu->accel_utr = (int16_t)((((int32_t)((int8_t)msb))<<8) | (lsb));
+
+	lsb = i2c_read(0x28);
+	msb = i2c_read(0x29);
+	//imu->accel_sac = (int16_t)i2c_read(0x29) | ((int16_t)i2c_read(0x28) << 8);
+	imu->accel_sac = (msb << 8) | lsb;
+	//imu->accel_sac = (int16_t)((((int32_t)((int8_t)msb))<<8) | (lsb));
 	imu->gyro_ant = (int16_t)i2c_read(0x17) | ((int16_t)i2c_read(0x16) << 8);
 	imu->gyro_lat = (int16_t)i2c_read(0x15) | ((int16_t)i2c_read(0x14) << 8);
 	imu->gyro_pos = (int16_t)i2c_read(0x19) | ((int16_t)i2c_read(0x18) << 8);
@@ -333,6 +344,10 @@ void getIMU(imu_data *imu)
 
 void scaleIMU(imu_data *imu)
 {
+	static int8_t hysteresis_utr, hysteresis_sac;
+	static uint8_t hysteresis_count_utr, hysteresis_count_sac;
+	int16_t temp;
+
 	imu->gyro_ant = imu->gyro_ant / 16;
 	if (((imu->gyro_ant) >= -16) && ((imu->gyro_ant) <= 15))
 	{
@@ -350,6 +365,16 @@ void scaleIMU(imu_data *imu)
 	{
 		imu->gyro_pos = 0;
 	}
+	
+	imu->accel_utr = imu->accel_utr / 100;
+	if (imu->accel_utr < -300 && imu->accel_utr < 300){
+		imu->accel_utr = 0;
+	} 
+
+	imu->accel_sac = imu->accel_sac / 100;
+	if (imu->accel_sac < -300 && imu->accel_sac < 300){
+		imu->accel_sac = 0;
+	} 
 }
 
 void setLEDs(imu_data *imu, led_array *leds)
@@ -385,6 +410,28 @@ void setLEDs(imu_data *imu, led_array *leds)
 	{
 		leds->LED_PC_LOW = (-1) * imu->gyro_pos;
 		leds->LED_PC_HIGH = 0;
+	}
+
+	if (imu->accel_utr > 0) 
+	{
+		leds->LED_UT_LOW = 0;
+		leds->LED_UT_HIGH = imu->accel_utr;
+	}
+	else
+	{
+		leds->LED_UT_LOW = (-1) * imu->accel_utr;
+		leds->LED_UT_HIGH = 0;
+	}
+
+	if (imu->accel_sac > 0) 
+	{
+		leds->LED_SA_LOW = 0;
+		leds->LED_SA_HIGH = imu->accel_sac;
+	}
+	else
+	{
+		leds->LED_SA_LOW = (-1) * imu->accel_sac;
+		leds->LED_SA_HIGH = 0;
 	}
 }
 

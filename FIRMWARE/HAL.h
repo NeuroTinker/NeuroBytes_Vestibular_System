@@ -51,6 +51,8 @@
 #define PORT_USART		GPIOA
 #define PIN_USART_TX	GPIO2
 
+#define HYSTERESIS_TIME	1000
+
 extern volatile uint8_t tick;
 extern volatile uint8_t main_tick;
 

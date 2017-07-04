@@ -37,6 +37,7 @@ int main(void)
 	i2c_write(0x3E, 0x0); //PWR_MODE register, normal
 	i2c_write(0x07, 0x01); //Page ID, switch to page 1
 	i2c_write(0x0A, 0x3C); //change gyro range to 125dps @32Hz
+	//i2c_write(0x3B, 0x01); //change ACC_unit to mg
 	i2c_write(0x07, 0x00); //Page ID, switch to page 0
 	i2c_write(0x3D, 0x8); //OPR_MODE register, IMU mode	
 
@@ -57,12 +58,11 @@ int main(void)
 			if (slow_count > 50)
 			{
 				slow_count = 0;
-				mini_snprintf(strDisp, 20, "%d\r\n", IMU.accel_utr);
-				usart_print(strDisp);
 				getIMU(&IMU);
+				mini_snprintf(strDisp, 20, "%d\n", IMU.accel_utr);
+				usart_print(strDisp);
 				scaleIMU(&IMU);
 				setLEDs(&IMU, &LEDs);
-				LEDs.LED_UT_HIGH = 500;
 			}
 		}
 	}
